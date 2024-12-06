@@ -1,5 +1,6 @@
 package com.example.tracking.controller;
 
+import com.example.tracking.model.TrackingResponse;
 import com.example.tracking.service.TrackingService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +19,7 @@ public class TrackingController {
     }
 
     @GetMapping("/next-tracking-number")
-    public CompletableFuture<ResponseEntity<?>> getNextTrackingNumber(
+    public CompletableFuture<ResponseEntity<TrackingResponse>> getNextTrackingNumber(
             @RequestParam("origin_country_id") String originCountryId,
             @RequestParam("destination_country_id") String destinationCountryId,
             @RequestParam("weight") double weight,
